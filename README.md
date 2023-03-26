@@ -8,6 +8,8 @@
 - Next Up Queue (Displays next 3 blocks in the queue)
 - Pause / Resume
 - Score, Lines, and Level Display
+- Changeable Backrounds
+- High Score Tracking
 
 ## Scoring & Levels
 Scoring is based off of the original BPS version of Tetris.
