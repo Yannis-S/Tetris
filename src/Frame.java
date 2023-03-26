@@ -40,6 +40,7 @@ public class Frame {
     private JLabel linesLabel;
     private JLabel holdImgLabel;
     private JLabel gameOverScoreLabel;
+    private JLabel highScoreLabel;
     private JLabel[] queuePicLabels;
 
     private Font pixelFont;
@@ -412,6 +413,11 @@ public class Frame {
         gameOverLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         gameOverPanel.add(gameOverLabel);
 
+        highScoreLabel = new JLabel("High Score: 0");
+        highScoreLabel.setFont(pixelFont.deriveFont(40f));
+        highScoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        gameOverPanel.add(highScoreLabel);
+
         gameOverScoreLabel = new JLabel("Score: 0");
         gameOverScoreLabel.setFont(pixelFont.deriveFont(40f));
         gameOverScoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -679,6 +685,7 @@ public class Frame {
                     } else {
                         blockGravityThread.interrupt();
                         gameOverAnimation();
+                        game.checkIfHighScore();
                         showGameOverMessage();
                     }
                 }
@@ -694,6 +701,7 @@ public class Frame {
     private void showGameOverMessage() {
         gamePanel.setVisible(false);
         gameOverScoreLabel.setText("Score: " + game.getScore());
+        highScoreLabel.setText("High Score: " + game.getHighScoreFromFile());
         gameOverPanel.setVisible(true);
     }
 
@@ -858,4 +866,3 @@ public class Frame {
     }
 
 }
-
