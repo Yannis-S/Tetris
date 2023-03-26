@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -505,6 +506,56 @@ public class Game {
             updatePreviousBlockPos();
             currentBlock.setNewLocation(rotateLoc);
             currentBlock.setBlockRotation(newBlockRotation);
+        }
+    }
+
+    /**
+     * getHighScoreFromFile()
+     * Gets the high score from text file
+     * @return - Returns the high score as int
+     */
+    public int getHighScoreFromFile() {
+        int highScore = -1;
+        try {
+            File highScoreFile = new File("resources/highscore.txt");
+            FileReader fileReader = new FileReader(highScoreFile);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String buffer;
+            while ((buffer = bufferedReader.readLine()) != null) {
+                highScore = Integer.parseInt(buffer);
+            }
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return highScore;
+    }
+
+    /**
+     * writeHighScoreToFile(int highScore)
+     * Writes high score to text file
+     * @param highScore - New high score to write to file
+     */
+    public void writeHighScoreToFile(int highScore) {
+        try {
+            File highScoreFile = new File("resources/highscore.txt");
+            FileWriter fileWriter = new FileWriter(highScoreFile);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(highScore + "");
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * checkIfHighScore()
+     * Checks if the current score is greater than current high score
+     * if true sets high score to current
+     */
+    public void checkIfHighScore() {
+        if (score > getHighScoreFromFile()) {
+            writeHighScoreToFile(score);
         }
     }
 
