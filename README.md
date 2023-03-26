@@ -1,5 +1,7 @@
-# Tetris
-### A remake of the classic Tetris game, built using Java and Java Swing. 
+![banner](https://github.com/Yannis-S/Tetris/blob/master/resources/social-preview.png)
+
+## About
+A Tetris game built using pure Java and Java Swing with a changeable cloud-style aesthetic.
 
 ## Features
 - Hold Block (Hold the current block until player wants to use it)
