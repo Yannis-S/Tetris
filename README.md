@@ -1,8 +1,6 @@
 # Tetris
 ### A remake of the classic Tetris game, built using Java and Java Swing. 
 
-![screenshot](https://github.com/Yannis-S/Tetris/blob/master/resources/screenshot-1.PNG)
-
 ## Features
 - Hold Block (Hold the current block until player wants to use it)
 - Next Up Queue (Displays next 3 blocks in the queue)
